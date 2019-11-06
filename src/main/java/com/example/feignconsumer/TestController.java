@@ -11,6 +11,10 @@ public class TestController {
     @Autowired
     private UserService userService;
 
+    @GetMapping("/info")
+    public String info(){
+        return userService.info();
+    }
     @GetMapping("/user/{id}")
     public User getUser(@PathVariable Long id) {
         System.out.println("这是FeignConsumer的日志！！！");

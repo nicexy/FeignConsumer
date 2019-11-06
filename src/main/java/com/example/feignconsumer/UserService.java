@@ -7,19 +7,21 @@ import java.util.List;
 
 @FeignClient("Server-Client")
 public interface UserService {
+    @GetMapping("/info")
+     String info();
 
-    @GetMapping("user/{id}")
-    public User get(@PathVariable("id") Long id);
+    @GetMapping("/user/{id}")
+     User get(@PathVariable("id") Long id);
 
-    @GetMapping("user")
+    @GetMapping("/user")
     public List<User> get();
 
     @PostMapping("user")
     public void add(@RequestBody User user);
 
     @PutMapping("user")
-    public void update(@RequestBody User user);
+     void update(@RequestBody User user);
 
     @DeleteMapping("user/{id}")
-    public void delete(@PathVariable("id") Long id);
+     void delete(@PathVariable("id") Long id);
 }
